@@ -135,7 +135,7 @@ export function Contact() {
 
                   {/* Subtle Action Indicator */}
                   <span className="mt-3.5 sm:mt-4 text-[10px] uppercase tracking-[0.22em] font-semibold text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
-                    Connect &rarr;
+                    Connect 
                   </span>
                 </Link>
               );
