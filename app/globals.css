@@ -12,6 +12,11 @@
   --border: #E3D9C6;
   --card: #FFFFFF;
   --card-foreground: #241536;
+
+  --footer-background: #1C102B;
+  --footer-foreground: #FAF7F2;
+  --footer-muted: #A396B2;
+  --footer-border: #2D1E40;
 }
 
 .dark {
@@ -26,6 +31,11 @@
   --border: #3A2A54;
   --card: #1A1028;
   --card-foreground: #F3EEE3;
+
+  --footer-background: #0E0717;
+  --footer-foreground: #F3EEE3;
+  --footer-muted: #8F839E;
+  --footer-border: #231635;
 }
 
 @theme inline {
@@ -40,6 +50,11 @@
   --color-border: var(--border);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
+  --color-footer-background: var(--footer-background);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-border: var(--footer-border);
 
   --font-serif: var(--font-serif);
   --font-display: var(--font-serif);
