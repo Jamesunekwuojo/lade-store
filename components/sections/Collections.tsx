@@ -137,7 +137,7 @@ export function Collections() {
 
                     {/* Bottom Corner Tag */}
                     <div className="w-full text-center opacity-40 text-[9px] tracking-[0.25em] uppercase font-sans text-foreground">
-                      Haute Modesty &bull; 2026
+                      Haute Modesty &bull; Curated Editions
                     </div>
                   </div>
 

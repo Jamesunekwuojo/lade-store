@@ -118,7 +118,7 @@ export function Hero() {
             {/* Bottom metadata */}
             <div className="flex items-center justify-between text-[10px] tracking-[0.25em] uppercase text-white/50 font-sans">
               <span>FASHION IN IR</span>
-              <span>VOL. I &mdash; MMXXVI</span>
+              <span>ROYAL HERITAGE</span>
             </div>
           </div>
 
