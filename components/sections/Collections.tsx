@@ -43,19 +43,19 @@ export function Collections({ products = [] }: CollectionsProps) {
     <section
       id="collections"
       aria-labelledby="collections-heading"
-      className="w-full bg-[var(--background)] text-foreground py-24 sm:py-32 px-6 sm:px-10 lg:px-16 border-t border-[var(--border)]"
+      className="w-full bg-[var(--background)] text-foreground py-16 sm:py-24 lg:py-32 px-4 sm:px-8 lg:px-16 border-t border-[var(--border)]"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-12 sm:pb-16 border-b border-[var(--border)]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 pb-8 sm:pb-14 border-b border-[var(--border)]">
           <div className="max-w-2xl">
             {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
               <span
                 className="h-px w-5 bg-[var(--accent)]"
                 aria-hidden="true"
               />
-              <span className="text-xs sm:text-[13px] tracking-[0.26em] uppercase font-medium text-[var(--accent)]">
+              <span className="text-[11px] sm:text-xs md:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] uppercase font-semibold text-[var(--accent)]">
                 The Collection
               </span>
             </div>
@@ -63,23 +63,23 @@ export function Collections({ products = [] }: CollectionsProps) {
             {/* Display Serif Heading */}
             <h2
               id="collections-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-[-0.01em] text-foreground leading-[1.1] text-balance"
+              className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-[-0.01em] text-foreground leading-[1.12] text-balance"
             >
               Curated for the Modern Woman of Heritage
             </h2>
 
-            <p className="mt-4 text-sm sm:text-base text-[var(--muted-foreground)] font-light leading-relaxed max-w-xl">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[var(--muted-foreground)] font-light leading-relaxed max-w-xl">
               Each silhouette is designed with intentional modesty, royal dignity,
               and refined artistry &mdash; timeless garments crafted for international poise.
             </p>
           </div>
 
-          {/* Dynamic Category Filter Tabs */}
+          {/* Dynamic Category Filter Tabs (Horizontal scroll on mobile with touch targets) */}
           {categories.length > 1 && (
             <div
               role="tablist"
               aria-label="Filter products by category"
-              className="flex flex-wrap items-center gap-6 sm:gap-8 pt-2"
+              className="flex items-center gap-4 sm:gap-7 overflow-x-auto no-scrollbar py-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap"
             >
               {categories.map((category) => {
                 const isActive = selectedCategory === category;
@@ -90,7 +90,7 @@ export function Collections({ products = [] }: CollectionsProps) {
                     type="button"
                     aria-selected={isActive}
                     onClick={() => setSelectedCategory(category)}
-                    className={`group relative py-1 text-xs sm:text-[13px] tracking-[0.2em] uppercase font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px] cursor-pointer ${
+                    className={`group relative py-1.5 px-1 text-xs sm:text-[13px] tracking-[0.18em] uppercase font-semibold whitespace-nowrap transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px] cursor-pointer flex-shrink-0 ${
                       isActive
                         ? "text-[var(--accent)]"
                         : "text-[var(--muted-foreground)] hover:text-foreground"
@@ -112,23 +112,14 @@ export function Collections({ products = [] }: CollectionsProps) {
 
         {/* Product Grid or Graceful Empty State */}
         {filteredProducts.length === 0 ? (
-          <div className="py-24 sm:py-32 text-center flex flex-col items-center justify-center gap-4">
-            <svg
-              width="28"
-              height="18"
-              viewBox="0 0 18 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="text-[var(--accent)] stroke-current opacity-70 mb-2"
-              aria-hidden="true"
-            >
-              <path
-                d="M1 11H17M2 11L3.2 2.5L6.8 6.5L9 1.2L11.2 6.5L14.8 2.5L16 11H2Z"
-                strokeWidth="1.1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+          <div className="py-20 sm:py-32 text-center flex flex-col items-center justify-center gap-4 px-4">
+            <Image
+              src="/logo.png"
+              alt="LADÉ'S STORES Emblem"
+              width={48}
+              height={66}
+              className="h-12 w-auto object-contain opacity-80 mb-2"
+            />
             <h3 className="font-serif text-2xl sm:text-3xl text-foreground font-normal tracking-wide">
               New pieces are on their way.
             </h3>
@@ -137,7 +128,7 @@ export function Collections({ products = [] }: CollectionsProps) {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 sm:gap-y-16 lg:gap-x-12 pt-12 sm:pt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-16 pt-8 sm:pt-14">
             {filteredProducts.map((product) => {
               const hasImage = product.images && product.images.length > 0 && product.images[0];
 
@@ -146,7 +137,7 @@ export function Collections({ products = [] }: CollectionsProps) {
                   <Link
                     href="#collections"
                     aria-label={`View details for ${product.name}, price ${product.priceLabel}`}
-                    className="flex flex-col gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px]"
+                    className="flex flex-col gap-3.5 sm:gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px]"
                   >
                     {/* Image Area (3:4 portrait) */}
                     <div className="aspect-[3/4] relative overflow-hidden bg-[var(--muted)] rounded-[2px] border border-[var(--border)]">
@@ -155,37 +146,28 @@ export function Collections({ products = [] }: CollectionsProps) {
                           src={product.images![0]}
                           alt={product.name}
                           fill
-                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                           className="object-cover object-center group-hover:scale-[1.025] transition-transform duration-300 ease-out"
                         />
                       ) : (
                         /* Subtle Editorial Placeholder Frame */
-                        <div className="absolute inset-0 p-6 flex flex-col justify-between items-center text-center group-hover:scale-[1.025] transition-transform duration-300 ease-out">
+                        <div className="absolute inset-0 p-5 sm:p-6 flex flex-col justify-between items-center text-center group-hover:scale-[1.025] transition-transform duration-300 ease-out">
                           {/* Top Tag */}
-                          <div className="w-full flex items-center justify-between opacity-50 text-[10px] tracking-[0.25em] uppercase font-sans text-foreground">
+                          <div className="w-full flex items-center justify-between opacity-50 text-[9px] sm:text-[10px] tracking-[0.24em] uppercase font-sans text-foreground">
                             <span>LADÉ&apos;S</span>
                             <span>EDITION</span>
                           </div>
 
                           {/* Centered Garment Title */}
                           <div className="flex flex-col items-center justify-center gap-3 px-4 my-auto">
-                            <svg
-                              width="24"
-                              height="16"
-                              viewBox="0 0 18 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="text-[var(--accent)]/60 stroke-current"
-                              aria-hidden="true"
-                            >
-                              <path
-                                d="M1 11H17M2 11L3.2 2.5L6.8 6.5L9 1.2L11.2 6.5L14.8 2.5L16 11H2Z"
-                                strokeWidth="1"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                            <span className="font-serif text-base sm:text-lg font-normal tracking-[0.06em] text-foreground/80">
+                            <Image
+                              src="/logo-sm.png"
+                              alt="LADÉ'S Monogram"
+                              width={32}
+                              height={44}
+                              className="h-7 sm:h-8 w-auto object-contain opacity-75"
+                            />
+                            <span className="font-serif text-base sm:text-lg font-normal tracking-[0.06em] text-foreground/85">
                               {product.imagePlaceholder || product.name}
                             </span>
                             {product.fabricNote && (
@@ -196,7 +178,7 @@ export function Collections({ products = [] }: CollectionsProps) {
                           </div>
 
                           {/* Bottom Tag */}
-                          <div className="w-full text-center opacity-40 text-[9px] tracking-[0.25em] uppercase font-sans text-foreground">
+                          <div className="w-full text-center opacity-40 text-[9px] tracking-[0.24em] uppercase font-sans text-foreground">
                             Haute Modesty &bull; Curated Editions
                           </div>
                         </div>
@@ -204,21 +186,21 @@ export function Collections({ products = [] }: CollectionsProps) {
 
                       {/* "New" Badge */}
                       {product.isNew && (
-                        <span className="absolute top-3 left-3 z-10 border border-[var(--accent)] text-[var(--accent)] text-[10px] tracking-[0.2em] uppercase px-2.5 py-0.5 rounded-[2px] bg-[var(--background)]/85 backdrop-blur-xs font-medium">
+                        <span className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 border border-[var(--accent)] text-[var(--accent)] text-[9px] sm:text-[10px] tracking-[0.2em] uppercase px-2 sm:px-2.5 py-0.5 rounded-[2px] bg-[var(--background)]/90 backdrop-blur-xs font-semibold">
                           New
                         </span>
                       )}
                     </div>
 
                     {/* Product Metadata Details */}
-                    <div className="flex flex-col gap-1 pt-1">
-                      <span className="text-[11px] tracking-[0.2em] uppercase font-medium text-[var(--muted-foreground)]">
+                    <div className="flex flex-col gap-1 pt-0.5">
+                      <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-medium text-[var(--muted-foreground)]">
                         {product.category}
                       </span>
-                      <h3 className="font-serif text-lg sm:text-xl font-normal text-foreground group-hover:text-[var(--accent)] transition-colors duration-200 leading-snug">
+                      <h3 className="font-serif text-base sm:text-lg md:text-xl font-normal text-foreground group-hover:text-[var(--accent)] transition-colors duration-200 leading-snug">
                         {product.name}
                       </h3>
-                      <p className="text-sm sm:text-base font-sans font-medium tracking-wide text-foreground pt-0.5">
+                      <p className="text-sm sm:text-base font-sans font-semibold tracking-wide text-foreground pt-0.5">
                         {product.priceLabel}
                       </p>
                     </div>
@@ -230,7 +212,7 @@ export function Collections({ products = [] }: CollectionsProps) {
         )}
 
         {/* Lookbook Footnote */}
-        <div className="mt-16 sm:mt-24 pt-8 border-t border-[var(--border)]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs tracking-[0.2em] uppercase text-[var(--muted-foreground)]">
+        <div className="mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-[var(--border)]/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs tracking-[0.18em] uppercase text-[var(--muted-foreground)]">
           <span>Bespoke Tailoring &bull; Custom Modest Couture</span>
           <Link
             href="#contact"
@@ -243,4 +225,5 @@ export function Collections({ products = [] }: CollectionsProps) {
     </section>
   );
 }
+
 export default Collections;

@@ -1,6 +1,7 @@
 import { auth, signOut } from "@/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function ProtectedAdminLayout({
   children,
@@ -17,12 +18,21 @@ export default async function ProtectedAdminLayout({
     <div className="min-h-screen flex flex-col bg-[var(--background)] text-foreground">
       {/* Admin Top Navigation Bar */}
       <header className="w-full border-b border-[var(--border)] bg-[var(--card)] px-6 sm:px-10 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3.5">
           <Link
             href="/admin"
-            className="font-serif text-lg font-medium tracking-[0.2em] uppercase text-foreground hover:text-[var(--accent)] transition-colors"
+            className="flex items-center gap-2.5 group transition-opacity hover:opacity-90"
           >
-            LADÉ&apos;S STORES
+            <Image
+              src="/logo.png"
+              alt="LADÉ'S STORES Logo"
+              width={36}
+              height={50}
+              className="h-7 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+            <span className="font-serif text-lg font-medium tracking-[0.2em] uppercase text-foreground group-hover:text-[var(--accent)] transition-colors">
+              LADÉ&apos;S STORES
+            </span>
           </Link>
           <span className="text-[11px] tracking-[0.2em] uppercase text-[var(--accent)] font-medium px-2 py-0.5 border border-[var(--accent)]/40 rounded-[2px]">
             Admin

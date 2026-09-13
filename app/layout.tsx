@@ -6,6 +6,16 @@ import { Header } from "@/components/layout/Header";
 export const metadata: Metadata = {
   title: "LADÉ'S STORES — Fashion in IR | Luxury Modest Fashion",
   description: "Promoting Godly heritage, elegance, royalty, and modesty in an evolving world.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({

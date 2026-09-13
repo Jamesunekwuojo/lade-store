@@ -68,19 +68,19 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="w-full bg-[var(--background)] text-foreground py-24 sm:py-32 px-6 sm:px-10 lg:px-16 border-t border-[var(--border)]"
+      className="w-full bg-[var(--background)] text-foreground py-16 sm:py-24 lg:py-32 px-4 sm:px-8 lg:px-16 border-t border-[var(--border)]"
     >
       <div className="max-w-5xl mx-auto">
         {/* Warm & Approachable Card Shell */}
-        <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-8 sm:p-12 lg:p-16 text-center flex flex-col items-center">
+        <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 sm:p-10 lg:p-14 text-center flex flex-col items-center shadow-xs">
           
           {/* Eyebrow Label */}
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
             <span
               className="h-px w-5 bg-[var(--accent)]"
               aria-hidden="true"
             />
-            <span className="text-xs sm:text-[13px] tracking-[0.26em] uppercase font-medium text-[var(--accent)]">
+            <span className="text-[11px] sm:text-xs md:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] uppercase font-semibold text-[var(--accent)]">
               Get in Touch
             </span>
             <span
@@ -98,12 +98,12 @@ export function Contact() {
           </h2>
 
           {/* Warm, Approachable Supporting Copy */}
-          <p className="mt-4 text-sm sm:text-base text-[var(--muted-foreground)] font-light leading-relaxed max-w-lg">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[var(--muted-foreground)] font-light leading-relaxed max-w-lg">
             Whether you are ordering your next signature modest piece, inquiring about custom fits, or exploring bespoke styling possibilities &mdash; we are always delighted to connect with you.
           </p>
 
           {/* Contact Methods Cards Grid */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mt-10 sm:mt-12">
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
             {CONTACT_METHODS.map((method) => {
               const Icon = method.icon;
               return (
@@ -113,28 +113,28 @@ export function Contact() {
                   target={method.isExternal ? "_blank" : undefined}
                   rel={method.isExternal ? "noopener noreferrer" : undefined}
                   aria-label={method.ariaLabel}
-                  className="group flex flex-col items-center justify-between p-6 sm:p-7 rounded-xl bg-[var(--background)] border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/40 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] cursor-pointer"
+                  className="group flex flex-col items-center justify-between p-5 sm:p-7 rounded-xl bg-[var(--background)] border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/40 active:scale-[0.99] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] cursor-pointer"
                 >
                   {/* Icon Badge */}
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[var(--muted)] text-[var(--accent)] border border-[var(--border)] group-hover:scale-105 group-hover:border-[var(--accent)]/50 transition-all duration-200 mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[var(--muted)] text-[var(--accent)] border border-[var(--border)] group-hover:scale-105 group-hover:border-[var(--accent)]/50 transition-all duration-200 mb-3 sm:mb-4">
                     <Icon className="w-5 h-5" strokeWidth={1.75} />
                   </div>
 
                   {/* Information Details */}
                   <div className="flex flex-col items-center text-center gap-1">
-                    <span className="text-xs uppercase tracking-[0.2em] font-medium text-[var(--muted-foreground)]">
+                    <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[var(--muted-foreground)]">
                       {method.title}
                     </span>
                     <span className="text-[11px] text-[var(--muted-foreground)]/80 font-light">
                       {method.label}
                     </span>
-                    <span className="font-serif text-sm sm:text-base font-normal text-foreground group-hover:text-[var(--accent)] transition-colors duration-200 pt-2 break-all">
+                    <span className="font-serif text-sm sm:text-base font-normal text-foreground group-hover:text-[var(--accent)] transition-colors duration-200 pt-1.5 break-all">
                       {method.value}
                     </span>
                   </div>
 
                   {/* Subtle Action Indicator */}
-                  <span className="mt-4 text-[10px] uppercase tracking-[0.22em] font-medium text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
+                  <span className="mt-3.5 sm:mt-4 text-[10px] uppercase tracking-[0.22em] font-semibold text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
                     Connect &rarr;
                   </span>
                 </Link>
@@ -143,7 +143,7 @@ export function Contact() {
           </div>
 
           {/* Closing Warm Blessing / Note */}
-          <div className="mt-10 sm:mt-12 pt-6 border-t border-[var(--border)]/60 w-full flex flex-col sm:flex-row items-center justify-center gap-2 text-xs tracking-[0.18em] uppercase text-[var(--muted-foreground)]">
+          <div className="mt-8 sm:mt-12 pt-5 sm:pt-6 border-t border-[var(--border)]/60 w-full flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 text-xs tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[var(--muted-foreground)]">
             <span>Dressed in Grace</span>
             <span className="hidden sm:inline">&bull;</span>
             <span>Honoring Godly Heritage</span>
@@ -154,4 +154,5 @@ export function Contact() {
     </section>
   );
 }
+
 export default Contact;

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -18,9 +19,9 @@ export default function AdminLoginPage() {
 
     try {
       const res = await signIn("credentials", {
+        redirect: false,
         email,
         password,
-        redirect: false,
       });
 
       if (res?.error) {
@@ -41,11 +42,19 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm bg-[var(--card)] border border-[var(--border)] rounded-xl p-8 sm:p-10 shadow-none">
         
         {/* Header Branding */}
-        <div className="text-center mb-8">
+        <div className="flex flex-col items-center justify-center text-center mb-8">
+          <Image
+            src="/logo.png"
+            alt="LADÉ'S STORES Logo"
+            width={72}
+            height={100}
+            className="h-16 w-auto object-contain mb-3"
+            priority
+          />
           <span className="font-serif text-lg sm:text-xl tracking-[0.24em] uppercase text-foreground font-medium select-none">
             LADÉ&apos;S STORES
           </span>
-          <h1 className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)] font-medium mt-2">
+          <h1 className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)] font-medium mt-1">
             Private Admin Portal
           </h1>
         </div>
