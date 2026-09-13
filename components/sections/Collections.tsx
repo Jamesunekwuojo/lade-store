@@ -1,23 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
-import {
-  CATEGORIES,
-  PLACEHOLDER_PRODUCTS,
-  type CategoryFilter,
-} from "@/lib/placeholder-data";
+import Image from "next/image";
 
-export function Collections() {
-  const [selectedCategory, setSelectedCategory] =
-    useState<CategoryFilter>("All");
+export interface UIProduct {
+  id: string;
+  name: string;
+  category: string;
+  priceLabel: string;
+  imagePlaceholder: string;
+  images?: string[];
+  isNew: boolean;
+  description?: string;
+  fabricNote?: string;
+}
 
-  const filteredProducts =
-    selectedCategory === "All"
-      ? PLACEHOLDER_PRODUCTS
-      : PLACEHOLDER_PRODUCTS.filter(
-          (product) => product.category === selectedCategory
-        );
+interface CollectionsProps {
+  products: UIProduct[];
+}
+
+export function Collections({ products = [] }: CollectionsProps) {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+  // Dynamically derive category filter tabs from distinct product categories
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(
+      new Set(products.map((p) => p.category).filter(Boolean))
+    );
+    return ["All", ...uniqueCategories];
+  }, [products]);
+
+  // Filter products client-side
+  const filteredProducts = useMemo(() => {
+    if (selectedCategory === "All") {
+      return products;
+    }
+    return products.filter((product) => product.category === selectedCategory);
+  }, [products, selectedCategory]);
 
   return (
     <section
@@ -54,117 +74,160 @@ export function Collections() {
             </p>
           </div>
 
-          {/* Category Filter Tabs */}
-          <div
-            role="tablist"
-            aria-label="Filter products by category"
-            className="flex flex-wrap items-center gap-6 sm:gap-8 pt-2"
-          >
-            {CATEGORIES.map((category) => {
-              const isActive = selectedCategory === category;
-              return (
-                <button
-                  key={category}
-                  role="tab"
-                  type="button"
-                  aria-selected={isActive}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`group relative py-1 text-xs sm:text-[13px] tracking-[0.2em] uppercase font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px] cursor-pointer ${
-                    isActive
-                      ? "text-[var(--accent)]"
-                      : "text-[var(--muted-foreground)] hover:text-foreground"
-                  }`}
-                >
-                  <span>{category}</span>
-                  <span
-                    className={`absolute bottom-0 left-0 h-[1.5px] bg-[var(--accent)] transition-all duration-300 ease-out ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
+          {/* Dynamic Category Filter Tabs */}
+          {categories.length > 1 && (
+            <div
+              role="tablist"
+              aria-label="Filter products by category"
+              className="flex flex-wrap items-center gap-6 sm:gap-8 pt-2"
+            >
+              {categories.map((category) => {
+                const isActive = selectedCategory === category;
+                return (
+                  <button
+                    key={category}
+                    role="tab"
+                    type="button"
+                    aria-selected={isActive}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`group relative py-1 text-xs sm:text-[13px] tracking-[0.2em] uppercase font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px] cursor-pointer ${
+                      isActive
+                        ? "text-[var(--accent)]"
+                        : "text-[var(--muted-foreground)] hover:text-foreground"
                     }`}
-                    aria-hidden="true"
-                  />
-                </button>
-              );
-            })}
-          </div>
+                  >
+                    <span>{category}</span>
+                    <span
+                      className={`absolute bottom-0 left-0 h-[1.5px] bg-[var(--accent)] transition-all duration-300 ease-out ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 sm:gap-y-16 lg:gap-x-12 pt-12 sm:pt-16">
-          {filteredProducts.map((product) => (
-            <article key={product.id} className="group flex flex-col">
-              <Link
-                href="#collections"
-                aria-label={`View details for ${product.name}, price ${product.priceLabel}`}
-                className="flex flex-col gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px]"
-              >
-                {/* Image Placeholder Area (3:4 portrait) */}
-                <div className="aspect-[3/4] relative overflow-hidden bg-[var(--muted)] rounded-[2px] border border-[var(--border)]">
-                  {/* Subtle Inner Framing Texture */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-between items-center text-center group-hover:scale-[1.025] transition-transform duration-300 ease-out">
-                    {/* Top Corner Brand Tag */}
-                    <div className="w-full flex items-center justify-between opacity-50 text-[10px] tracking-[0.25em] uppercase font-sans text-foreground">
-                      <span>LADÉ&apos;S</span>
-                      <span>EDITION</span>
-                    </div>
+        {/* Product Grid or Graceful Empty State */}
+        {filteredProducts.length === 0 ? (
+          <div className="py-24 sm:py-32 text-center flex flex-col items-center justify-center gap-4">
+            <svg
+              width="28"
+              height="18"
+              viewBox="0 0 18 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-[var(--accent)] stroke-current opacity-70 mb-2"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 11H17M2 11L3.2 2.5L6.8 6.5L9 1.2L11.2 6.5L14.8 2.5L16 11H2Z"
+                strokeWidth="1.1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <h3 className="font-serif text-2xl sm:text-3xl text-foreground font-normal tracking-wide">
+              New pieces are on their way.
+            </h3>
+            <p className="text-sm font-sans text-[var(--muted-foreground)] max-w-md font-light leading-relaxed">
+              Our artisans are currently preparing the upcoming release. Connect with our styling concierge for bespoke requests or custom fittings.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 sm:gap-y-16 lg:gap-x-12 pt-12 sm:pt-16">
+            {filteredProducts.map((product) => {
+              const hasImage = product.images && product.images.length > 0 && product.images[0];
 
-                    {/* Centered Garment Label */}
-                    <div className="flex flex-col items-center justify-center gap-3 px-4 my-auto">
-                      <svg
-                        width="24"
-                        height="16"
-                        viewBox="0 0 18 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="text-[var(--accent)]/60 stroke-current"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M1 11H17M2 11L3.2 2.5L6.8 6.5L9 1.2L11.2 6.5L14.8 2.5L16 11H2Z"
-                          strokeWidth="1"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+              return (
+                <article key={product.id} className="group flex flex-col">
+                  <Link
+                    href="#collections"
+                    aria-label={`View details for ${product.name}, price ${product.priceLabel}`}
+                    className="flex flex-col gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px]"
+                  >
+                    {/* Image Area (3:4 portrait) */}
+                    <div className="aspect-[3/4] relative overflow-hidden bg-[var(--muted)] rounded-[2px] border border-[var(--border)]">
+                      {hasImage ? (
+                        <Image
+                          src={product.images![0]}
+                          alt={product.name}
+                          fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          className="object-cover object-center group-hover:scale-[1.025] transition-transform duration-300 ease-out"
                         />
-                      </svg>
-                      <span className="font-serif text-base sm:text-lg font-normal tracking-[0.06em] text-foreground/80">
-                        {product.imagePlaceholder}
-                      </span>
-                      {product.fabricNote && (
-                        <span className="text-[11px] tracking-wider text-[var(--muted-foreground)] font-light italic">
-                          {product.fabricNote}
+                      ) : (
+                        /* Subtle Editorial Placeholder Frame */
+                        <div className="absolute inset-0 p-6 flex flex-col justify-between items-center text-center group-hover:scale-[1.025] transition-transform duration-300 ease-out">
+                          {/* Top Tag */}
+                          <div className="w-full flex items-center justify-between opacity-50 text-[10px] tracking-[0.25em] uppercase font-sans text-foreground">
+                            <span>LADÉ&apos;S</span>
+                            <span>EDITION</span>
+                          </div>
+
+                          {/* Centered Garment Title */}
+                          <div className="flex flex-col items-center justify-center gap-3 px-4 my-auto">
+                            <svg
+                              width="24"
+                              height="16"
+                              viewBox="0 0 18 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="text-[var(--accent)]/60 stroke-current"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M1 11H17M2 11L3.2 2.5L6.8 6.5L9 1.2L11.2 6.5L14.8 2.5L16 11H2Z"
+                                strokeWidth="1"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <span className="font-serif text-base sm:text-lg font-normal tracking-[0.06em] text-foreground/80">
+                              {product.imagePlaceholder || product.name}
+                            </span>
+                            {product.fabricNote && (
+                              <span className="text-[11px] tracking-wider text-[var(--muted-foreground)] font-light italic">
+                                {product.fabricNote}
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Bottom Tag */}
+                          <div className="w-full text-center opacity-40 text-[9px] tracking-[0.25em] uppercase font-sans text-foreground">
+                            Haute Modesty &bull; Curated Editions
+                          </div>
+                        </div>
+                      )}
+
+                      {/* "New" Badge */}
+                      {product.isNew && (
+                        <span className="absolute top-3 left-3 z-10 border border-[var(--accent)] text-[var(--accent)] text-[10px] tracking-[0.2em] uppercase px-2.5 py-0.5 rounded-[2px] bg-[var(--background)]/85 backdrop-blur-xs font-medium">
+                          New
                         </span>
                       )}
                     </div>
 
-                    {/* Bottom Corner Tag */}
-                    <div className="w-full text-center opacity-40 text-[9px] tracking-[0.25em] uppercase font-sans text-foreground">
-                      Haute Modesty &bull; Curated Editions
+                    {/* Product Metadata Details */}
+                    <div className="flex flex-col gap-1 pt-1">
+                      <span className="text-[11px] tracking-[0.2em] uppercase font-medium text-[var(--muted-foreground)]">
+                        {product.category}
+                      </span>
+                      <h3 className="font-serif text-lg sm:text-xl font-normal text-foreground group-hover:text-[var(--accent)] transition-colors duration-200 leading-snug">
+                        {product.name}
+                      </h3>
+                      <p className="text-sm sm:text-base font-sans font-medium tracking-wide text-foreground pt-0.5">
+                        {product.priceLabel}
+                      </p>
                     </div>
-                  </div>
-
-                  {/* "New" Badge */}
-                  {product.isNew && (
-                    <span className="absolute top-3 left-3 z-10 border border-[var(--accent)] text-[var(--accent)] text-[10px] tracking-[0.2em] uppercase px-2.5 py-0.5 rounded-[2px] bg-[var(--background)]/85 backdrop-blur-xs font-medium">
-                      New
-                    </span>
-                  )}
-                </div>
-
-                {/* Product Metadata Details */}
-                <div className="flex flex-col gap-1 pt-1">
-                  <span className="text-[11px] tracking-[0.2em] uppercase font-medium text-[var(--muted-foreground)]">
-                    {product.category}
-                  </span>
-                  <h3 className="font-serif text-lg sm:text-xl font-normal text-foreground group-hover:text-[var(--accent)] transition-colors duration-200 leading-snug">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm sm:text-base font-sans font-medium tracking-wide text-foreground pt-0.5">
-                    {product.priceLabel}
-                  </p>
-                </div>
-              </Link>
-            </article>
-          ))}
-        </div>
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        )}
 
         {/* Lookbook Footnote */}
         <div className="mt-16 sm:mt-24 pt-8 border-t border-[var(--border)]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs tracking-[0.2em] uppercase text-[var(--muted-foreground)]">

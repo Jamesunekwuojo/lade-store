@@ -1,12 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
 
 export function Hero() {
-  const [imageError, setImageError] = useState(false);
-
   return (
     <section
       id="home"
@@ -121,19 +115,6 @@ export function Hero() {
               <span>ROYAL HERITAGE</span>
             </div>
           </div>
-
-          {/* Next.js Image loader if placeholder photography file is present */}
-          {!imageError && (
-            <Image
-              src="/hero/hero-placeholder.jpg"
-              alt="Lade's Store Luxury Modest Fashion Editorial"
-              fill
-              priority
-              sizes="(min-width: 1024px) 55vw, 100vw"
-              className="object-cover object-center transition-opacity duration-700"
-              onError={() => setImageError(true)}
-            />
-          )}
         </div>
       </div>
     </section>
