@@ -37,7 +37,7 @@ export function Logo({
 
   return (
     <Link
-      href="#home"
+      href="/#home"
       onClick={onClick}
       aria-label="LADÉ EMPIRE Home"
       className={`group inline-flex items-center gap-2 sm:gap-3 text-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px] whitespace-nowrap ${className}`}

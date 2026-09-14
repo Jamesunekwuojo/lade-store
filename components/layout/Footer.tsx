@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "Collections", href: "#collections" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Collections", href: "/#collections" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Footer() {
@@ -19,7 +19,7 @@ export function Footer() {
           {/* Column 1: Brand Wordmark & Tagline (Left) */}
           <div className="md:col-span-6 lg:col-span-5 flex flex-col gap-3.5 sm:gap-4">
             <Link
-              href="#home"
+              href="/#home"
               aria-label="LADÉ EMPIRE Home"
               className="group inline-flex items-center gap-2.5 sm:gap-3 text-[var(--footer-foreground)] hover:text-[var(--accent)] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px] w-fit"
             >

@@ -134,7 +134,7 @@ export function About() {
             {/* Contact / Consultation Link */}
             <div className="pt-2">
               <Link
-                href="#contact"
+                href="/#contact"
                 className="group inline-flex items-center gap-3 text-xs sm:text-sm tracking-[0.2em] uppercase font-semibold text-foreground hover:text-[var(--accent)] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px]"
               >
                 <span>Connect with our Styling Concierge</span>

@@ -134,7 +134,7 @@ export function Collections({ products = [] }: CollectionsProps) {
               return (
                 <article key={product.id} className="group flex flex-col">
                   <Link
-                    href="#collections"
+                    href="/#collections"
                     aria-label={`View details for ${product.name}, price ${product.priceLabel}`}
                     className="flex flex-col gap-3.5 sm:gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px]"
                   >
@@ -214,7 +214,7 @@ export function Collections({ products = [] }: CollectionsProps) {
         <div className="mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-[var(--border)]/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs tracking-[0.18em] uppercase text-[var(--muted-foreground)]">
           <span>Women&apos;s Modest Haute Couture &bull; Men&apos;s Bespoke Capsule</span>
           <Link
-            href="#contact"
+            href="/#contact"
             className="text-[var(--accent)] hover:underline underline-offset-4 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-[2px]"
           >
             Inquire About Custom Fittings &rarr;

@@ -67,7 +67,7 @@ export function Hero() {
           {/* 5. CTA & Focus Indicator */}
           <div className="animate-hero-4 pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link
-              href="#collections"
+              href="/#collections"
               className="group inline-flex items-center justify-center sm:justify-start gap-3.5 px-8 py-3.5 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase border border-foreground/60 text-foreground hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300 rounded-[2px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
             >
               <span>Explore Women&apos;s Couture</span>

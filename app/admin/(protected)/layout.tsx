@@ -40,7 +40,13 @@ export default async function ProtectedAdminLayout({
         </div>
 
         {/* Admin Session Info & Logout Button */}
-        <div className="flex items-center gap-4 text-xs">
+        <div className="flex items-center gap-3 sm:gap-4 text-xs">
+          <Link
+            href="/"
+            className="py-1.5 px-3 rounded-[3px] border border-[var(--border)] hover:border-[var(--accent)] hover:text-[var(--accent)] text-xs font-medium tracking-wider uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          >
+            Storefront &rarr;
+          </Link>
           <span className="text-[var(--muted-foreground)] hidden sm:inline">
             {session.user.email}
           </span>

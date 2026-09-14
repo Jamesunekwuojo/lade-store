@@ -8,10 +8,10 @@ import { ThemeToggle } from "./ThemeToggle";
 import { MobileNav, type NavItem } from "./MobileNav";
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "#home" },
-  { label: "Collections", href: "#collections" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Collections", href: "/#collections" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Header() {
@@ -63,7 +63,7 @@ export function Header() {
           <div className="hidden md:flex items-center gap-5">
             <ThemeToggle />
             <Link
-              href="#contact"
+              href="/#contact"
               className="inline-flex items-center justify-center px-4 py-1.5 text-[12px] tracking-[0.2em] uppercase font-semibold border border-foreground/40 hover:border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-200 rounded-[2px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] shadow-xs"
             >
               Enquire
