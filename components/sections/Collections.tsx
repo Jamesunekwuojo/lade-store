@@ -55,8 +55,8 @@ export function Collections({ products = [] }: CollectionsProps) {
                 className="h-px w-5 bg-[var(--accent)]"
                 aria-hidden="true"
               />
-              <span className="text-[11px] sm:text-xs md:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] uppercase font-semibold text-[var(--accent)]">
-                The Collection
+              <span className="text-[11px] sm:text-xs md:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] uppercase font-bold text-[var(--accent)]">
+                The Collections &bull; LADÉ EMPIRE
               </span>
             </div>
 
@@ -65,12 +65,11 @@ export function Collections({ products = [] }: CollectionsProps) {
               id="collections-heading"
               className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-[-0.01em] text-foreground leading-[1.12] text-balance"
             >
-              Curated for the Modern Woman of Heritage
+              Curated for the Sovereign &amp; Modest
             </h2>
 
             <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[var(--muted-foreground)] font-light leading-relaxed max-w-xl">
-              Each silhouette is designed with intentional modesty, royal dignity,
-              and refined artistry &mdash; timeless garments crafted for international poise.
+              Our core atelier focus is magnificent haute couture crafted for <strong className="font-medium text-foreground">women</strong> &mdash; with an exclusive, limited-edition capsule of ceremonial attire &amp; accessories for <strong className="font-medium text-foreground">men</strong>.
             </p>
           </div>
 
@@ -115,7 +114,7 @@ export function Collections({ products = [] }: CollectionsProps) {
           <div className="py-20 sm:py-32 text-center flex flex-col items-center justify-center gap-4 px-4">
             <Image
               src="/logo.png"
-              alt="LADÉ'S STORES Emblem"
+              alt="LADÉ EMPIRE Emblem"
               width={48}
               height={66}
               className="h-12 w-auto object-contain opacity-80 mb-2"
@@ -154,7 +153,7 @@ export function Collections({ products = [] }: CollectionsProps) {
                         <div className="absolute inset-0 p-5 sm:p-6 flex flex-col justify-between items-center text-center group-hover:scale-[1.025] transition-transform duration-300 ease-out">
                           {/* Top Tag */}
                           <div className="w-full flex items-center justify-between opacity-50 text-[9px] sm:text-[10px] tracking-[0.24em] uppercase font-sans text-foreground">
-                            <span>LADÉ&apos;S</span>
+                            <span>LADÉ EMPIRE</span>
                             <span>EDITION</span>
                           </div>
 
@@ -162,7 +161,7 @@ export function Collections({ products = [] }: CollectionsProps) {
                           <div className="flex flex-col items-center justify-center gap-3 px-4 my-auto">
                             <Image
                               src="/logo-sm.png"
-                              alt="LADÉ'S Monogram"
+                              alt="LADÉ EMPIRE Monogram"
                               width={32}
                               height={44}
                               className="h-7 sm:h-8 w-auto object-contain opacity-75"
@@ -179,7 +178,7 @@ export function Collections({ products = [] }: CollectionsProps) {
 
                           {/* Bottom Tag */}
                           <div className="w-full text-center opacity-40 text-[9px] tracking-[0.24em] uppercase font-sans text-foreground">
-                            Haute Modesty &bull; Curated Editions
+                            I OWN THE CROWN &bull; Haute Modesty
                           </div>
                         </div>
                       )}
@@ -213,12 +212,12 @@ export function Collections({ products = [] }: CollectionsProps) {
 
         {/* Lookbook Footnote */}
         <div className="mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-[var(--border)]/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs tracking-[0.18em] uppercase text-[var(--muted-foreground)]">
-          <span>Bespoke Tailoring &bull; Custom Modest Couture</span>
+          <span>Women&apos;s Modest Haute Couture &bull; Men&apos;s Bespoke Capsule</span>
           <Link
             href="#contact"
             className="text-[var(--accent)] hover:underline underline-offset-4 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-[2px]"
           >
-            Inquire About Custom Fits &rarr;
+            Inquire About Custom Fittings &rarr;
           </Link>
         </div>
       </div>

@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/Header";
+import { SoundAtmosphere } from "@/components/ui/SoundAtmosphere";
 
 export const metadata: Metadata = {
-  title: "LADÉ'S STORES — Fashion in IR | Luxury Modest Fashion",
-  description: "Promoting Godly heritage, elegance, royalty, and modesty in an evolving world.",
+  title: "LADÉ EMPIRE — I OWN THE CROWN | Luxury Modest Couture & Cultural Heritage",
+  description: "LADÉ EMPIRE — Promoting Godly heritage, royal dignity, and African cultural recognition. Haute modest couture tailored primarily for women, with exclusive limited-edition pieces for men.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -37,6 +38,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="flex-1 flex flex-col">{children}</main>
+          <SoundAtmosphere />
         </ThemeProvider>
       </body>
     </html>

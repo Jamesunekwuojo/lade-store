@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin Portal | LADÉ'S STORES",
-  description: "Private management portal for Ladé's Store.",
+  title: "Admin Portal | LADÉ EMPIRE",
+  description: "Private management portal for LADÉ EMPIRE.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

@@ -25,13 +25,13 @@ export default async function ProtectedAdminLayout({
           >
             <Image
               src="/logo.png"
-              alt="LADÉ'S STORES Logo"
+              alt="LADÉ EMPIRE Logo"
               width={36}
               height={50}
               className="h-7 w-auto object-contain transition-transform group-hover:scale-105"
             />
             <span className="font-serif text-lg font-medium tracking-[0.2em] uppercase text-foreground group-hover:text-[var(--accent)] transition-colors">
-              LADÉ&apos;S STORES
+              LADÉ EMPIRE
             </span>
           </Link>
           <span className="text-[11px] tracking-[0.2em] uppercase text-[var(--accent)] font-medium px-2 py-0.5 border border-[var(--accent)]/40 rounded-[2px]">

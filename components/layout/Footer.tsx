@@ -20,27 +20,27 @@ export function Footer() {
           <div className="md:col-span-6 lg:col-span-5 flex flex-col gap-3.5 sm:gap-4">
             <Link
               href="#home"
-              aria-label="LADÉ'S STORES Home"
+              aria-label="LADÉ EMPIRE Home"
               className="group inline-flex items-center gap-2.5 sm:gap-3 text-[var(--footer-foreground)] hover:text-[var(--accent)] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-[2px] w-fit"
             >
               <Image
                 src="/logo.png"
-                alt="LADÉ'S STORES Monogram"
+                alt="LADÉ EMPIRE Monogram"
                 width={56}
                 height={77}
                 className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
               <span className="font-serif text-lg sm:text-2xl font-medium tracking-[0.2em] sm:tracking-[0.24em] uppercase select-none">
-                LADÉ&apos;S STORES
+                LADÉ EMPIRE
               </span>
             </Link>
 
             <p className="font-sans text-xs sm:text-sm text-[var(--footer-muted)] font-light leading-relaxed max-w-sm tracking-wide">
-              Fashion in IR &mdash; promoting Godly heritage, elegance, royalty, and modesty in an evolving world.
+              Fashion in IR &mdash; Promoting Godly heritage, royal dignity, and African cultural pride. Tailored primarily for women, featuring exclusive limited designs for men.
             </p>
 
-            <div className="pt-1 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[var(--footer-muted)]/80 font-sans">
-              Haute Modest Couture &bull; Curated Editions
+            <div className="pt-1 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[var(--footer-muted)]/85 font-sans font-medium">
+              &ldquo;I OWN THE CROWN&rdquo; &bull; Haute Modest Couture
             </div>
           </div>
 
@@ -111,18 +111,18 @@ export function Footer() {
         {/* Bottom Bar: Copyright & Subtle Logo Motif */}
         <div className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-[var(--footer-border)] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[var(--footer-muted)] text-center sm:text-left">
           <p className="m-0">
-            &copy; 2026 Lade&apos;s Store. All rights reserved.
+            &copy; 2026 LADÉ EMPIRE. All rights reserved.
           </p>
 
           <div className="flex items-center gap-2 sm:gap-2.5">
             <Image
               src="/logo-sm.png"
-              alt="LADÉ'S STORES Emblem"
+              alt="LADÉ EMPIRE Emblem"
               width={20}
               height={28}
               className="h-3.5 sm:h-4 w-auto object-contain opacity-85"
             />
-            <span className="text-[10px] sm:text-[11px] tracking-[0.24em]">Fashion in IR</span>
+            <span className="text-[10px] sm:text-[11px] tracking-[0.24em]">I OWN THE CROWN</span>
           </div>
         </div>
 

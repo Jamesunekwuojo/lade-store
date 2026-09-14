@@ -4,9 +4,9 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = process.env.ADMIN_SEED_EMAIL || "admin@ladestores.com";
-  const password = process.env.ADMIN_SEED_PASSWORD || "LadeStore2026!";
-  const name = process.env.ADMIN_SEED_NAME || "Lade Admin";
+  const email = process.env.ADMIN_SEED_EMAIL || "admin@ladeempire.com";
+  const password = process.env.ADMIN_SEED_PASSWORD || "LadeEmpire2026!";
+  const name = process.env.ADMIN_SEED_NAME || "LADÉ EMPIRE Admin";
 
   console.log(`[Admin Seed] Preparing admin user for email: ${email}`);
 

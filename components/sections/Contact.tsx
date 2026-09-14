@@ -80,8 +80,8 @@ export function Contact() {
               className="h-px w-5 bg-[var(--accent)]"
               aria-hidden="true"
             />
-            <span className="text-[11px] sm:text-xs md:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] uppercase font-semibold text-[var(--accent)]">
-              Get in Touch
+            <span className="text-[11px] sm:text-xs md:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] uppercase font-bold text-[var(--accent)]">
+              LADÉ EMPIRE &bull; Connect
             </span>
             <span
               className="h-px w-5 bg-[var(--accent)]"
@@ -99,7 +99,7 @@ export function Contact() {
 
           {/* Warm, Approachable Supporting Copy */}
           <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[var(--muted-foreground)] font-light leading-relaxed max-w-lg">
-            Whether you are ordering your next signature modest piece, inquiring about custom fits, or exploring bespoke styling possibilities &mdash; we are always delighted to connect with you.
+            Whether ordering your signature women&apos;s modest couture piece, commissioning bespoke tailoring, or inquiring about our exclusive men&apos;s capsule &mdash; we are honored to connect with you.
           </p>
 
           {/* Contact Methods Cards Grid */}
@@ -135,7 +135,7 @@ export function Contact() {
 
                   {/* Subtle Action Indicator */}
                   <span className="mt-3.5 sm:mt-4 text-[10px] uppercase tracking-[0.22em] font-semibold text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
-                    Connect 
+                    Connect
                   </span>
                 </Link>
               );
@@ -144,9 +144,11 @@ export function Contact() {
 
           {/* Closing Warm Blessing / Note */}
           <div className="mt-8 sm:mt-12 pt-5 sm:pt-6 border-t border-[var(--border)]/60 w-full flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 text-xs tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[var(--muted-foreground)]">
-            <span>Dressed in Grace</span>
+            <span>&ldquo;I Own The Crown&rdquo;</span>
             <span className="hidden sm:inline">&bull;</span>
-            <span>Honoring Godly Heritage</span>
+            <span>LADÉ EMPIRE</span>
+            <span className="hidden sm:inline">&bull;</span>
+            <span>Honoring African Heritage</span>
           </div>
 
         </div>

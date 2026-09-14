@@ -104,7 +104,7 @@ export function MobileNav({ isOpen, onClose, items }: MobileNavProps) {
 
       {/* Footer subtle brand tagline in mobile menu */}
       <div className="py-5 text-center border-t border-[var(--border)]/70 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[var(--muted-foreground)] flex-shrink-0">
-        Fashion in IR &bull; Modest Haute Couture
+        LADÉ EMPIRE &bull; &ldquo;I OWN THE CROWN&rdquo; &bull; Fashion in IR
       </div>
     </div>
   );

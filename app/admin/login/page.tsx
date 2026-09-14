@@ -45,14 +45,14 @@ export default function AdminLoginPage() {
         <div className="flex flex-col items-center justify-center text-center mb-8">
           <Image
             src="/logo.png"
-            alt="LADÉ'S STORES Logo"
+            alt="LADÉ EMPIRE Logo"
             width={72}
             height={100}
             className="h-16 w-auto object-contain mb-3"
             priority
           />
           <span className="font-serif text-lg sm:text-xl tracking-[0.24em] uppercase text-foreground font-medium select-none">
-            LADÉ&apos;S STORES
+            LADÉ EMPIRE
           </span>
           <h1 className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)] font-medium mt-1">
             Private Admin Portal
@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
               autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@ladestores.com"
+              placeholder="admin@ladeempire.com"
               className="w-full px-3.5 py-2.5 rounded-[4px] bg-[var(--background)] border border-[var(--border)] text-sm text-foreground placeholder:text-[var(--muted-foreground)]/50 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--accent)] transition-colors"
             />
           </div>
